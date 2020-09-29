@@ -1,6 +1,6 @@
 ---
 build:
   docker:
-    app: Dockerfile
-    #run:
-    #  app: bundle exec rails s -p $PORT
+    web: Dockerfile
+run:
+  web: bundle exec rails s -p $PORT

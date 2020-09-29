@@ -95,3 +95,4 @@ config/env.yml
 nginx.conf.sigil
 DOKKU_SCALE
 ENV
+docker-compose.yml

@@ -17,8 +17,6 @@ ADD Gemfile.lock .
 
 RUN bundle config set path 'vendor/bundle' && bundle install --quiet --jobs 4 --retry 5
 
-ADD package.json /app/package.json
-
 # These two lines below will remove the `require` in `decidim-dev.gemspec`, which seems to be
 # causing issues in certain circumstances using bundler. They should not be needed at all, so
 # it's worth removing them in the future and checking out they work.
