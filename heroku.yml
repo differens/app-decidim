@@ -2,5 +2,5 @@
 build:
   docker:
     app: Dockerfile
-run:
-  app: bundle exec rails s -p $PORT
+    #run:
+    #  app: bundle exec rails s -p $PORT
