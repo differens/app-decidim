@@ -15,7 +15,7 @@ WORKDIR /code
 ADD Gemfile .
 ADD Gemfile.lock .
 
-RUN bundle config set path 'vendor/bundle' && bundle install --quiet --jobs 4 --retry 5
+RUN bundle install --quiet --jobs 10 --retry 5
 
 # These two lines below will remove the `require` in `decidim-dev.gemspec`, which seems to be
 # causing issues in certain circumstances using bundler. They should not be needed at all, so
@@ -26,8 +26,12 @@ RUN bundle config set path 'vendor/bundle' && bundle install --quiet --jobs 4 --
 #ADD ./vendor /app/vendor
 
 ADD . .
-RUN bundle exec rails assets:precompile
+#RUN bundle exec rails assets:precompile
 RUN mkdir tmp/pids
+
+RUN useradd decidim -d /code && usermod -a -G decidim decidim
+RUN chown -R decidim /code
+USER decidim
 
 EXPOSE 3000
 
