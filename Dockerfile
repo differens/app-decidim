@@ -26,7 +26,7 @@ RUN bundle install --quiet --jobs 10 --retry 5
 #ADD ./vendor /app/vendor
 
 ADD . .
-#RUN bundle exec rails assets:precompile
+RUN bundle exec rails assets:precompile
 RUN mkdir tmp/pids
 
 RUN useradd decidim -d /code && usermod -a -G decidim decidim
