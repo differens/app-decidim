@@ -5,8 +5,8 @@ source 'https://rubygems.org'
 ruby RUBY_VERSION
 
 gem 'decidim', '0.22.0'
-# gem "decidim-consultations", "0.22.0"
-# gem "decidim-initiatives", "0.22.0"
+gem "decidim-consultations", "0.22.0"
+gem "decidim-initiatives", "0.22.0"
 
 gem 'bootsnap', '~> 1.3'
 
@@ -29,4 +29,4 @@ group :development do
   gem 'web-console', '~> 3.5'
 end
 
-gem 'decidim-navbar_links', git: "https://github.com/OpenSourcePolitics/decidim-module-navbar_links" 
+# gem 'decidim-navbar_links', git: "https://github.com/OpenSourcePolitics/decidim-module-navbar_links" 
