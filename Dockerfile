@@ -29,6 +29,10 @@ ADD . .
 RUN bundle exec rails assets:precompile
 RUN mkdir tmp/pids
 
+RUN bundle
+RUN bundle exec rake decidim_navbar_links:install:migrations
+RUN bundle exec rake db:migrate
+
 RUN useradd decidim -d /code && usermod -a -G decidim decidim
 RUN chown -R decidim /code
 USER decidim
