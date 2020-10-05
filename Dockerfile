@@ -26,6 +26,8 @@ RUN bundle install --quiet --jobs 10 --retry 5
 #ADD ./vendor /app/vendor
 
 ADD . .
+RUN bundle exec rails decidim_initiatives:install:migrations
+Run bundle exec rails db:migrate
 RUN bundle exec rails assets:precompile
 RUN mkdir tmp/pids
 
