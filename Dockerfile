@@ -15,9 +15,6 @@ WORKDIR /code
 ADD Gemfile .
 ADD Gemfile.lock .
 
-RUN bundle exec rails decidim_initiatives:install:migrations
-RUN bundle exec rails db:migrate
-
 RUN bundle install --quiet --jobs 10 --retry 5
 
 # These two lines below will remove the `require` in `decidim-dev.gemspec`, which seems to be
@@ -29,6 +26,8 @@ RUN bundle install --quiet --jobs 10 --retry 5
 #ADD ./vendor /app/vendor
 
 ADD . .
+RUN bundle exec rails decidim_initiatives:install:migrations
+Run bundle exec rails db:migrate
 RUN bundle exec rails assets:precompile
 RUN mkdir tmp/pids
 
